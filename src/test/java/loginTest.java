@@ -1,4 +1,3 @@
-//import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -8,8 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-
-public class firstExampleClean {
+public class loginTest {
 
     public WebDriver driver;
 
@@ -19,36 +17,36 @@ public class firstExampleClean {
         driver = new ChromeDriver();
     }
 
-
-    @Test(description = "Тут написано описание того что делает тест в вольной форме", priority = 0)
+    @Test(description = "Проверка корректного входа", priority = 0)
     public void testOpenGoogleAndCheck() {
 
-        //Открываем на весь экран
-//        driver.manage().window().maximize();
-
-        //Открываем страницу Гугла
-        driver.get("http://www.google.com");
+        //Открываем страницу Test
+        driver.get("http://the-internet.herokuapp.com/login");
 
         //Печатаем титул страницы в лог
         System.out.println("Page title is: " + driver.getTitle());
 
-        //Ищем поле ввода формы поиска
-        WebElement element = driver.findElement(By.name("q"));
+        //Ищем поле ввода Username
+        WebElement username = driver.findElement(By.id("username"));
 
-        //Вводим в поиск selenium
-        element.sendKeys("selenium");
+        //Вводим в поле Username
+        username.sendKeys("tomsmith");
 
-        //Запускаем поиск
-        element.sendKeys(Keys.ENTER);
+        //Ищем поле ввода Password
+        WebElement password = driver.findElement(By.id("password"));
 
-        //Ассерт того что div с результатами поиска вообще отображается
-        Assert.assertTrue(driver.findElement(By.id("search")).isDisplayed());
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Selenium — Википедия')]")).isDisplayed());
+        //Вводим в поле Password
+        password.sendKeys("SuperSecretPassword!");
 
+        //Ищем кнопку Login
+        WebElement buttonLogin = driver.findElement(By.className("radius"));
+
+        //Нажимаем кнопку Login
+        buttonLogin.sendKeys(Keys.ENTER);
+
+        //Ассерт того что выполнен вход
+        Assert.assertTrue(driver.findElement(By.id("flash")).isDisplayed());
     }
-
-
-
 
     @AfterMethod
     public void teardown() {
@@ -56,11 +54,4 @@ public class firstExampleClean {
             driver.quit();
         }
     }
-
-
-
-
-
-
-
 }
