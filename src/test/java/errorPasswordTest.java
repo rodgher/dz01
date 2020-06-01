@@ -30,13 +30,13 @@ public class errorPasswordTest {
         //Ищем поле ввода Username
         WebElement username = driver.findElement(By.id("username"));
 
-        //Вводим некорректный логин в поле Username
+        //Вводим логин в поле Username
         username.sendKeys("tomsmith");
 
         //Ищем поле ввода Password
         WebElement password = driver.findElement(By.id("password"));
 
-        //Вводим в поле Password
+        //Вводим в поле некорректный Password
         password.sendKeys("SuperSecretPassword!!");
 
         //Ищем кнопку Login
@@ -45,7 +45,7 @@ public class errorPasswordTest {
         //Нажимаем кнопку Login
         buttonLogin.sendKeys(Keys.ENTER);
 
-        //Ассерт того что выполнен вход
+        //Ассерт ошибки входа - Не верный password
         Assert.assertTrue(driver.findElement(By.xpath("//*[@class='flash error']")).isDisplayed());
         Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'Your password is invalid!')]")).isDisplayed());
     }

@@ -45,7 +45,7 @@ public class errorLoginTest {
         //Нажимаем кнопку Login
         buttonLogin.sendKeys(Keys.ENTER);
 
-        //Ассерт того что выполнен вход
+        //Ассерт ошибки входа - Не верный username
         Assert.assertTrue(driver.findElement(By.xpath("//*[@class='flash error']")).isDisplayed());
         Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'Your username is invalid!')]")).isDisplayed());
     }
