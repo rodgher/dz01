@@ -18,7 +18,7 @@ public class loginTest {
     }
 
     @Test(description = "Проверка корректного входа", priority = 0)
-    public void testOpenGoogleAndCheck() {
+    public void testLoginSucces() {
 
         //Открываем страницу Test
         driver.get("http://the-internet.herokuapp.com/login");
@@ -45,7 +45,8 @@ public class loginTest {
         buttonLogin.sendKeys(Keys.ENTER);
 
         //Ассерт того что выполнен вход
-        Assert.assertTrue(driver.findElement(By.id("flash")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@class='flash success']")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'You logged into a secure area!')]")).isDisplayed());
     }
 
     @AfterMethod
