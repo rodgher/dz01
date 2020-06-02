@@ -1,4 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -6,6 +7,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
+import static helpers.testLoginData.errorPassword;
+import static helpers.testLoginData.trueLogin;
 import static pages.LoginPage.*;
 
 public class errorPasswordTest {
@@ -26,10 +29,10 @@ public class errorPasswordTest {
         openLoginPage(driver);
 
         //Вводим логин в поле Username
-        enterField(usernameField, "tomsmith");
+        enterField(usernameField, trueLogin);
 
         //Вводим в поле не корректный Password
-        enterField(passwordField, "SuperSecretPassword!1");
+        enterField(passwordField, errorPassword);
 
         //Нажимаем Enter
         pressEnterForElement(buttonLogin);

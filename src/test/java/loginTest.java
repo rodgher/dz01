@@ -4,6 +4,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 import pages.LoginPage;
 
+import static helpers.testLoginData.trueLogin;
+import static helpers.testLoginData.truePassword;
 import static pages.LoginPage.*;
 
 public class loginTest {
@@ -25,10 +27,10 @@ public class loginTest {
         openLoginPage(driver);
 
         //Вводим в поле Username
-        enterField(usernameField, "tomsmith");
+        enterField(usernameField, trueLogin);
 
         //Вводим в поле Password
-        enterField(passwordField, "SuperSecretPassword!");
+        enterField(passwordField, truePassword);
 
         //Нажимаем Enter
         pressEnterForElement(buttonLogin);

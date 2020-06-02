@@ -6,6 +6,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
+import static helpers.testLoginData.errorLogin;
+import static helpers.testLoginData.truePassword;
 import static pages.LoginPage.*;
 
 public class errorLoginTest {
@@ -26,10 +28,10 @@ public class errorLoginTest {
         openLoginPage(driver);
 
         //Вводим в поле не корректный Username
-        enterField(usernameField, "tomsmith1");
+        enterField(usernameField, errorLogin);
 
         //Вводим в поле Password
-        enterField(passwordField, "SuperSecretPassword!");
+        enterField(passwordField, truePassword);
 
         //Нажимаем Enter
         pressEnterForElement(buttonLogin);
