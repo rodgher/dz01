@@ -1,50 +1,41 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import pages.LoginPage;
+
+import static pages.LoginPage.*;
 
 public class loginTest {
 
     public WebDriver driver;
+    public LoginPage newLoginPage;
 
     @BeforeMethod
     public void setupClass() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        newLoginPage = new LoginPage(driver);
     }
 
     @Test(description = "Проверка корректного входа", priority = 0)
-    public void testLoginSucces() {
+    public void testLoginSuccess() {
 
-        //Открываем страницу Test
-        driver.get("http://the-internet.herokuapp.com/login");
-
-        //Печатаем титул страницы в лог
-        System.out.println("Page title is: " + driver.getTitle());
-
-        //Ищем поле ввода Username
-        WebElement username = driver.findElement(By.id("username"));
+        //Открываем страницу Test/login
+        openLoginPage(driver);
 
         //Вводим в поле Username
-        username.sendKeys("tomsmith");
-
-        //Ищем поле ввода Password
-        WebElement password = driver.findElement(By.id("password"));
+        enterField(usernameField, "tomsmith");
 
         //Вводим в поле Password
-        password.sendKeys("SuperSecretPassword!");
+        enterField(passwordField, "SuperSecretPassword!");
 
-        //Ищем кнопку Login
-        WebElement buttonLogin = driver.findElement(By.className("radius"));
+        //Нажимаем Enter
+        pressEnterForElement(buttonLogin);
 
-        //Нажимаем кнопку Login
-        buttonLogin.sendKeys(Keys.ENTER);
-
-        //Ассерт того что выполнен вход
+        //Ассерт того что выполнен успешный вход
         Assert.assertTrue(driver.findElement(By.xpath("//*[@class='flash success']")).isDisplayed());
         Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'You logged into a secure area!')]")).isDisplayed());
     }
