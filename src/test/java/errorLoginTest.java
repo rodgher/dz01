@@ -19,7 +19,7 @@ public class errorLoginTest {
     }
 
     @Test(description = "Проверка ошибки входа при неверном username", priority = 0)
-    public void testErrorlogin() {
+    public void testIncorrectUsername() {
 
         //Открываем страницу Test
         driver.get("http://the-internet.herokuapp.com/login");

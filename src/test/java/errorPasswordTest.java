@@ -19,7 +19,7 @@ public class errorPasswordTest {
     }
 
     @Test(description = "Проверка ошибки входа при неверном password", priority = 0)
-    public void testErrorlogin() {
+    public void testIncorrectPassword() {
 
         //Открываем страницу Test
         driver.get("http://the-internet.herokuapp.com/login");
