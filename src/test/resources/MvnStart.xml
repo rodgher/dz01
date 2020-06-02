@@ -6,7 +6,7 @@
 
     <test name="All">
         <classes>
-            <class name="loginTest"/>
+            <class name="successloginTest"/>
             <class name="errorLoginTest"/>
             <class name="errorPasswordTest"/>
         </classes>

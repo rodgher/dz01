@@ -8,7 +8,7 @@ import static helpers.testLoginData.trueLogin;
 import static helpers.testLoginData.truePassword;
 import static pages.LoginPage.*;
 
-public class loginTest {
+public class successloginTest {
 
     public WebDriver driver;
     public LoginPage newLoginPage;
