@@ -12,7 +12,7 @@ import static pages.LoginPage.*;
 
 public class errorLoginTest {
     public WebDriver driver;
-    private LoginPage newLoginPage;
+    public LoginPage newLoginPage;
 
     @BeforeMethod
     public void setupClass() {
