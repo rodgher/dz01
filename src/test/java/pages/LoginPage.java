@@ -21,10 +21,10 @@ public class LoginPage {
     public static WebElement buttonLogin;
 
     @FindBy(xpath = "//*[@class='flash success']")
-    public static WebElement successLogin;
+    public static WebElement successPopupLogin;
 
     @FindBy(xpath = "//*[@class='flash error']")
-    public static WebElement errorLogin;
+    public static WebElement errorPopupLogin;
 
     @FindBy(xpath = "//*[contains(text(), 'You logged into a secure area!')]")
     public static WebElement successMessageLogin;
