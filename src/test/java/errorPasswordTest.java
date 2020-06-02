@@ -37,9 +37,8 @@ public class errorPasswordTest {
         pressEnterForElement(buttonLogin);
 
         //Ассерт ошибки входа - Не верный password
-        Assert.assertTrue(driver.findElement(By.xpath("//*[@class='flash error']")).isDisplayed());
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'Your password is invalid!')]")).isDisplayed());
-    }
+        checkElementDisplayed(errorLogin);
+        checkElementDisplayed(errorPasswordLogin);    }
 
     @AfterMethod
     public void teardown() {

@@ -36,8 +36,8 @@ public class loginTest {
         pressEnterForElement(buttonLogin);
 
         //Ассерт того что выполнен успешный вход
-        Assert.assertTrue(driver.findElement(By.xpath("//*[@class='flash success']")).isDisplayed());
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'You logged into a secure area!')]")).isDisplayed());
+        checkElementDisplayed(successLogin);
+        checkElementDisplayed(successMessageLogin);
     }
 
     @AfterMethod
