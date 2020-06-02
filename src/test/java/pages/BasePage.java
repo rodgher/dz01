@@ -54,9 +54,7 @@ public class BasePage {
             // Save a log on allure.
             saveTextLog(getTestMethodName(result) + " failed and screenshot taken!");
         }
-
     }
-
 
     // Text attachments for Allure
     @Attachment(value = "{0}", type = "text/plain")
@@ -64,13 +62,10 @@ public class BasePage {
         return message;
     }
 
-
     //Image attachments for Allure
     @Step("Снятие скриншота в аллюр")
     @Attachment(value = "Page screenshot", type = "image/png")
     public static byte[] saveScreenshotPNG(WebDriver driver) {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
-
-
 }
