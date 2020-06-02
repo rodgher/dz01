@@ -38,7 +38,7 @@ public class errorPasswordTest {
 
         //Ассерт ошибки входа - Не верный password
         checkElementDisplayed(errorLogin);
-        checkElementDisplayed(errorPasswordLogin);
+        checkElementDisplayed(errorMessagePasswordLogin);
     }
 
     @AfterMethod

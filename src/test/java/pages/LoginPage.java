@@ -30,10 +30,10 @@ public class LoginPage {
     public static WebElement successMessageLogin;
 
     @FindBy(xpath = "//*[contains(text(), 'Your username is invalid!')]")
-    public static WebElement errorUsernameLogin;
+    public static WebElement errorMessageUsernameLogin;
 
     @FindBy(xpath = "//*[contains(text(), 'Your password is invalid!')]")
-    public static WebElement errorPasswordLogin;
+    public static WebElement errorMessagePasswordLogin;
 
 
     public LoginPage(WebDriver driver) {

@@ -38,7 +38,7 @@ public class errorLoginTest {
 
         //Ассерт ошибки входа - Не верный username
         checkElementDisplayed(errorLogin);
-        checkElementDisplayed(errorUsernameLogin);
+        checkElementDisplayed(errorMessageUsernameLogin);
     }
 
     @AfterMethod
