@@ -41,16 +41,14 @@ public class LoginPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    //открываем ссылку
+
     @Step("Открываем тестовую страницу")
     public static void openLoginPage(WebDriver driver) {
-
         driver.get("http://the-internet.herokuapp.com/login");
     }
 
     @Step("Нажимаем клавишу ENTER")
     public static void pressEnterForElement(WebElement buttonLogin) {
-
         buttonLogin.sendKeys(Keys.ENTER);
     }
 
@@ -61,7 +59,6 @@ public class LoginPage {
 
     @Step("Вводим в поле значение")
     public static void enterField(WebElement element, String value) {
-
         element.sendKeys(value);
     }
 }
