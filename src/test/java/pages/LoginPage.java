@@ -48,18 +48,18 @@ public class LoginPage {
         driver.get("http://the-internet.herokuapp.com/login");
     }
 
-    @Step("Нажимаем ENTER")
+    @Step("Нажимаем клавишу ENTER")
     public static void pressEnterForElement(WebElement buttonLogin) {
 
         buttonLogin.sendKeys(Keys.ENTER);
     }
 
-    @Step("Проверяем видимость элемента")
+    @Step("Проверяем отображение элемента")
     public static void checkElementDisplayed(WebElement element) {
         Assert.assertTrue(element.isDisplayed());
     }
 
-    @Step("Вводим в поле")
+    @Step("Вводим в поле значение")
     public static void enterField(WebElement element, String value) {
 
         element.sendKeys(value);
