@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -40,21 +41,25 @@ public class LoginPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-
+    //открываем ссылку
+    @Step("Открываем тестовую страницу")
     public static void openLoginPage(WebDriver driver) {
 
         driver.get("http://the-internet.herokuapp.com/login");
     }
 
+    @Step("Нажимаем ENTER")
     public static void pressEnterForElement(WebElement buttonLogin) {
 
         buttonLogin.sendKeys(Keys.ENTER);
     }
 
+    @Step("Проверяем видимость элемента")
     public static void checkElementDisplayed(WebElement element) {
         Assert.assertTrue(element.isDisplayed());
     }
 
+    @Step("Вводим в поле")
     public static void enterField(WebElement element, String value) {
 
         element.sendKeys(value);

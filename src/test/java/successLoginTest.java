@@ -1,22 +1,26 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
+import pages.BasePage;
 import pages.LoginPage;
 
 import static helpers.testLoginData.trueLogin;
 import static helpers.testLoginData.truePassword;
+import static pages.BasePage.makeScreenOnTestFail;
 import static pages.LoginPage.*;
 
-public class successloginTest {
+public class successLoginTest {
 
     public WebDriver driver;
+    public pages.BasePage BasePage;
     public LoginPage newLoginPage;
 
     @BeforeMethod
     public void setupClass() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        BasePage = new BasePage();
+        driver = BasePage.initialize_driver();
         newLoginPage = new LoginPage(driver);
     }
 
@@ -41,7 +45,8 @@ public class successloginTest {
     }
 
     @AfterMethod
-    public void teardown() {
+    public void teardown(ITestResult result) {
+        makeScreenOnTestFail(result);
         if (driver != null) {
             driver.quit();
         }

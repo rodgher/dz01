@@ -12,7 +12,6 @@ public class testAllureListener implements ITestListener {
         return iTestResult.getMethod().getConstructorOrMethod().getName();
     }
 
-
     @Override
     public void onStart(ITestContext iTestContext) {
         System.out.println("I am in onStart method " + iTestContext.getName());
@@ -45,8 +44,4 @@ public class testAllureListener implements ITestListener {
     public void onTestSkipped(ITestResult iTestResult) {
         System.out.println("I am in onTestSkipped method " + getTestMethodName(iTestResult) + " skipped");
     }
-
-
-
-
 }

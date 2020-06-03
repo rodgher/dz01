@@ -29,10 +29,10 @@ public class BasePage {
     @Step("Создание веб. драйвера с заданными параметрами")
     public WebDriver initialize_driver() {
 
-        WebDriverManager.getInstance(CHROME).config().setChromeDriverVersion("79");
+        WebDriverManager.getInstance(CHROME).config().setChromeDriverVersion("83");
         WebDriverManager.getInstance(CHROME).setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized");
+//        options.addArguments("start-maximized");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 //        driver.manage().window().maximize();

@@ -4,9 +4,13 @@
 
 <suite name="Mvn start">
 
+    <listeners>
+        <listener class-name="helpers.testAllureListener"/>
+    </listeners>
+
     <test name="All">
         <classes>
-            <class name="successloginTest"/>
+            <class name="successLoginTest"/>
             <class name="errorLoginTest"/>
             <class name="errorPasswordTest"/>
         </classes>
